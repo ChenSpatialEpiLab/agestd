@@ -1,11 +1,12 @@
 library(tidyverse)
 
 
-
+# In this example, we are using 13 age categories
 these_agecat <- paste0('Age',c('0-4','5-9','10-14','15-19','20-24','25-29',
                                '30-34','35-44','45-54','55-64','65-74','75-84','85+'))
 
-# read SEER standard population data
+# read SEER standard population data. The 19 age categories need to be collapsed
+# into 13 age categories to match what is in the mortality data.
 seer_age19 <- read_fwf("stdpop.19ages.txt",
                        fwf_widths(c(3,3,8),
                                   c("standard","age","std_raw"))) %>%
